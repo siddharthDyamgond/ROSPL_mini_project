@@ -6,7 +6,7 @@ import numpy as np
 pipe = pickle.load(open('pipe.pkl','rb'))
 df = pickle.load(open('df.pkl','rb'))
 
-st.title("Laptop Predictor")
+st.title("Laptop Price Predictor")
 
 # brand
 company = st.selectbox('Brand',df['Company'].unique())
@@ -18,7 +18,7 @@ type = st.selectbox('Type',df['TypeName'].unique())
 ram = st.selectbox('RAM(in GB)',[2,4,6,8,12,16,24,32,64])
 
 # weight
-weight = st.number_input('Weight of the Laptop')
+weight = st.number_input('Weight of Laptop')
 
 # Touchscreen
 touchscreen = st.selectbox('Touchscreen',['No','Yes'])
@@ -41,9 +41,9 @@ ssd = st.selectbox('SSD(in GB)',[0,8,128,256,512,1024])
 
 gpu = st.selectbox('GPU',df['Gpu brand'].unique())
 
-os = st.selectbox('OS',df['os'].unique())
+os = st.selectbox('Operating System',df['os'].unique())
 
-if st.button('Predict Price'):
+if st.button('Predict the Price'):
     # query
     ppi = None
     if touchscreen == 'Yes':
